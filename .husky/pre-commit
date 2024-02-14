@@ -1,0 +1,1 @@
+npx prettier -c -u --log-level=warn .
