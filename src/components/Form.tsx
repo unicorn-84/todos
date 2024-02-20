@@ -16,7 +16,7 @@ const Form: React.FC<IFormProps> = ({ value, onChange, addTodo, className, ...pr
   }, []);
 
   const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
-    if (e.code === 'Enter') {
+    if (e.key === 'Enter') {
       addTodo();
     }
   };
