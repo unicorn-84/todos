@@ -45,8 +45,7 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className="m-auto max-w-lg px-6">
-      <h1 className="text-center font-bold text-3xl lg:text-4xl mt-9 lg:mt-12 mb-6 lg:mb-9">My Todos</h1>
+    <div className="m-auto max-w-xl px-6 mt-12 lg:mt-24">
       <Form value={value} onChange={handleChange} addTodo={addTodo} />
       <List todos={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
     </div>
