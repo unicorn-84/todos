@@ -20,7 +20,7 @@ const Form = React.forwardRef<HTMLInputElement, IFormProps>(
         {...props}
       >
         <input
-          placeholder="Enter you task"
+          placeholder="Enter your task"
           value={value}
           onChange={onChange}
           ref={ref}
