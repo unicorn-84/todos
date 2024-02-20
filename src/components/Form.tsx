@@ -20,16 +20,13 @@ const Form = React.forwardRef<HTMLInputElement, IFormProps>(
         {...props}
       >
         <input
-          placeholder="Todo"
+          placeholder="Enter you task"
           value={value}
           onChange={onChange}
           ref={ref}
           onKeyDown={handleKeyDown}
           className="input input-bordered input-primary w-full"
         />
-        <button onClick={addTodo} className="btn btn-primary">
-          Add
-        </button>
       </div>
     );
   },
