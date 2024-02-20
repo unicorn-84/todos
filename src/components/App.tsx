@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef, useEffect } from 'react';
 import { Form, List } from '.';
 import { ITodo } from '../types';
 import { useLocalStorage } from '@uidotdev/usehooks';
@@ -11,6 +11,14 @@ const App: React.FC = () => {
     setValue(e.target.value);
   };
 
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (inputRef.current) {
+      inputRef.current.focus();
+    }
+  }, []);
+
   const addTodo = () => {
     if (value) {
       setTodos([
@@ -22,6 +30,10 @@ const App: React.FC = () => {
         },
       ]);
       setValue('');
+    }
+
+    if (inputRef.current) {
+      inputRef.current.focus();
     }
   };
 
@@ -47,7 +59,7 @@ const App: React.FC = () => {
   return (
     <div className="m-auto max-w-lg px-6">
       <h1 className="text-center font-bold text-3xl lg:text-4xl mt-9 lg:mt-12 mb-6 lg:mb-9">My Todos</h1>
-      <Form value={value} onChange={handleChange} addTodo={addTodo} />
+      <Form value={value} onChange={handleChange} addTodo={addTodo} ref={inputRef} />
       <List todos={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
     </div>
   );
