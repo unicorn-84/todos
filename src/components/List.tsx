@@ -10,7 +10,7 @@ interface IListProps
 
 const List: React.FC<IListProps> = ({ todos, removeTodo, toggleTodo, className, ...props }) => {
   return (
-    <ul className={clsx('space-y-3 lg:space-y-5', className)} {...props}>
+    <ul className={clsx('space-y-4 lg:space-y-6', className)} {...props}>
       {todos.map(({ todoId, task, complete }) => (
         <Item
           key={todoId}
