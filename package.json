@@ -23,7 +23,6 @@
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "@fontsource-variable/raleway": "^5.0.17",
     "@tailwindcss/forms": "^0.5.7",
     "@types/react": "^18.2.55",
     "@types/react-dom": "^18.2.19",
