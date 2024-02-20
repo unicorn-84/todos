@@ -27,14 +27,14 @@ const Item: React.FC<IItemProps> = ({ todoId, task, complete, removeTodo, toggle
           onChange={() => toggleTodo(todoId)}
         />
         <span
-          className={clsx('text-3xl lg:text-4xl break-words', {
+          className={clsx('text-3xl lg:text-4xl break-words leading-none', {
             'line-through': complete,
           })}
         >
           {task}
         </span>
       </label>
-      <button onClick={() => removeTodo(todoId)} className="btn btn-warning btn-xs lg:btn-sm btn-square btn-neutral">
+      <button onClick={() => removeTodo(todoId)} className="btn btn-warning btn-xs lg:btn-sm btn-square">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           className="h-6 w-6"
