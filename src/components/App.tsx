@@ -12,7 +12,7 @@ const App: React.FC = () => {
   };
 
   const addTodo = () => {
-    if (value) {
+    if (value && todos.every((todo) => todo.task !== value)) {
       setTodos([
         {
           todoId: Date.now(),
