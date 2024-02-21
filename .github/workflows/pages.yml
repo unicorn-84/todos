@@ -1,10 +1,6 @@
 name: Deploy
 on:
-  workflow_run:
-    workflows:
-      - Release
-    types:
-      - completed
+  push:
     branches:
       - master
 
@@ -20,7 +16,6 @@ concurrency:
 
 jobs:
   deploy:
-    if: ${{ github.event.workflow_run.conclusion == 'success' }}
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
