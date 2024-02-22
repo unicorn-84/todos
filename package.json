@@ -9,8 +9,7 @@
     "build": "tsc && vite build",
     "lint": "eslint . --ext js,cjs,jsx,ts,tsx",
     "preview": "vite preview",
-    "format": "prettier . --log-level=warn -uc",
-    "prepare": "husky",
+    "format": "prettier -wu --log-level=warn .",
     "deploy": "pnpm build && gh-pages -d dist"
   },
   "dependencies": {
