@@ -1,6 +1,6 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Form, List } from '.';
-import { ITodo } from '../types';
+import type { ITodo } from '../types';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
 const App: React.FC = () => {
@@ -11,8 +11,8 @@ const App: React.FC = () => {
     setValue(e.target.value);
   };
 
-  const addTodo = () => {
-    if (value && todos.every((todo) => todo.task !== value)) {
+  const addTodo = (): void => {
+    if (value !== '' && todos.every((todo) => todo.task !== value)) {
       setTodos([
         {
           todoId: Date.now(),
@@ -25,11 +25,11 @@ const App: React.FC = () => {
     }
   };
 
-  const removeTodo = (id: number) => {
+  const removeTodo = (id: number): void => {
     setTodos(todos.filter((todo) => todo.todoId !== id));
   };
 
-  const toggleTodo = (id: number) => {
+  const toggleTodo = (id: number): void => {
     setTodos(
       todos.map((todo) => {
         if (todo.todoId !== id) {

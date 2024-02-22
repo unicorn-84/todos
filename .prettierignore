@@ -1,1 +1,6 @@
-pnpm-lock.yaml
+dist
+**/*.js
+**/*.cjs
+**/*.jsx
+**/*.ts
+**/*.tsx

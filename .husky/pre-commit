@@ -1,1 +1,2 @@
-npx prettier -c -u --log-level=warn .
+pnpm format
+pnpm lint
