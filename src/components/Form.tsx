@@ -31,7 +31,6 @@ const Form: React.FC<IFormProps> = ({
     >
       <input
         placeholder="Enter your task"
-        autoFocus
         value={value}
         onChange={onChange}
         onKeyDown={handleKeyDown}
