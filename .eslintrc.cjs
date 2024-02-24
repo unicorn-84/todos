@@ -4,7 +4,8 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  extends: ['standard-with-typescript', 'plugin:react/recommended'],
+  // TODO: Add plugin:jsx-a11y/recommended
+  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:jest-dom/recommended', 'plugin:testing-library/react'],
   ignorePatterns: ['dist'],
   overrides: [
     {
@@ -21,6 +22,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   plugins: ['react'],
+  // TODO: Add no-console: ["error", { allow: ["error"] }]
   rules: {
     semi: 'off',
     '@typescript-eslint/semi': [
