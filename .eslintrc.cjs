@@ -21,7 +21,6 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   plugins: ['react'],
-  // TODO: Add no-console: ["error", { allow: ["error"] }]
   rules: {
     semi: 'off',
     '@typescript-eslint/semi': [
@@ -31,6 +30,7 @@ module.exports = {
     ],
     'comma-dangle': 'off',
     '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
+    'no-console': ['error', { allow: ['error'] }],
   },
   settings: {
     react: {
