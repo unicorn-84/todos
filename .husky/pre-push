@@ -1,1 +1,1 @@
-pnpm vitest --silent --run
+pnpm vitest --silent --run --passWithNoTests
