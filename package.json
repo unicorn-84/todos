@@ -10,7 +10,7 @@
     "lint": "eslint . --ext js,cjs,jsx,ts,tsx",
     "preview": "vite preview",
     "format": "prettier . --log-level=warn -cu",
-    "test": "vitest"
+    "test": "vitest --passWithNoTests"
   },
   "dependencies": {
     "@uidotdev/usehooks": "^2.4.1",
