@@ -4,8 +4,7 @@ module.exports = {
     browser: true,
     es2021: true,
   },
-  // TODO: Add plugin:jsx-a11y/recommended
-  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:jest-dom/recommended', 'plugin:testing-library/react'],
+  extends: ['standard-with-typescript', 'plugin:react/recommended', 'plugin:jest-dom/recommended', 'plugin:testing-library/react', 'plugin:jsx-a11y/recommended'],
   ignorePatterns: ['dist'],
   overrides: [
     {
