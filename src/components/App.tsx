@@ -1,44 +1,44 @@
 import React, { useState } from 'react';
 import { Form, List } from '.';
-import type { ITodo } from '../types';
+import type { ITask } from '../types';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
 const App: React.FC = () => {
   const [value, setValue] = useState('');
-  const [todos, setTodos] = useLocalStorage<ITodo[]>('todos', []);
+  const [tasks, setTasks] = useLocalStorage<ITask[]>('tasks', []);
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setValue(e.target.value);
   };
 
-  const addTodo = (): void => {
-    if (value !== '' && todos.every((todo) => todo.task !== value)) {
-      setTodos([
-        ...todos,
+  const addTask = (): void => {
+    if (value !== '' && tasks.every(({ taskTitle }) => taskTitle !== value)) {
+      setTasks([
+        ...tasks,
         {
-          todoId: Date.now(),
-          task: value,
-          complete: false,
+          taskId: Date.now(),
+          taskTitle: value,
+          taskComplete: false,
         },
       ]);
       setValue('');
     }
   };
 
-  const removeTodo = (id: number): void => {
-    setTodos(todos.filter((todo) => todo.todoId !== id));
+  const removeTask = (id: number): void => {
+    setTasks(tasks.filter(({ taskId }) => taskId !== id));
   };
 
-  const toggleTodo = (id: number): void => {
-    setTodos(
-      todos.map((todo) => {
-        if (todo.todoId !== id) {
-          return todo;
+  const toggleTask = (id: number): void => {
+    setTasks(
+      tasks.map((task) => {
+        if (task.taskId !== id) {
+          return task;
         }
 
         return {
-          ...todo,
-          complete: !todo.complete,
+          ...task,
+          taskComplete: !task.taskComplete,
         };
       }),
     );
@@ -46,9 +46,9 @@ const App: React.FC = () => {
 
   return (
     <div className="m-auto max-w-xl px-6 mt-12 lg:mt-24">
-      <Form value={value} onChange={handleChange} addTodo={addTodo} />
-      {todos.length > 0 && (
-        <List todos={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
+      <Form value={value} onChange={handleChange} addTask={addTask} />
+      {tasks.length > 0 && (
+        <List tasks={tasks} removeTask={removeTask} toggleTask={toggleTask} />
       )}
     </div>
   );

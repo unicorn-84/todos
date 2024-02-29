@@ -1,23 +1,21 @@
 import React from 'react';
-import type { ITodoChangeMethods } from '../types';
 import clsx from 'clsx';
 
-interface IFormProps
-  extends Pick<ITodoChangeMethods, 'addTodo'>,
-    React.HTMLAttributes<HTMLDivElement> {
+interface IFormProps extends React.HTMLAttributes<HTMLDivElement> {
   value: string;
+  addTask: () => void;
 }
 
 const Form: React.FC<IFormProps> = ({
   value,
   onChange,
-  addTodo,
+  addTask,
   className,
   ...props
 }) => {
   const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
     if (e.key === 'Enter') {
-      addTodo();
+      addTask();
     }
   };
 

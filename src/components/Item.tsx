@@ -1,18 +1,18 @@
 import React from 'react';
-import type { ITodo, ITodoChangeMethods } from '../types';
+import type { ITask } from '../types';
 import clsx from 'clsx';
 
-interface IItemProps
-  extends ITodo,
-    Pick<ITodoChangeMethods, 'removeTodo' | 'toggleTodo'>,
-    React.HTMLAttributes<HTMLDivElement> {}
+interface IItemProps extends ITask, React.HTMLAttributes<HTMLDivElement> {
+  toggleTask: (id: number) => void;
+  removeTask: (id: number) => void;
+}
 
 const Item: React.FC<IItemProps> = ({
-  todoId,
-  task,
-  complete,
-  removeTodo,
-  toggleTodo,
+  taskId,
+  taskTitle,
+  taskComplete,
+  removeTask,
+  toggleTask,
   className,
   ...props
 }) => {
@@ -21,7 +21,7 @@ const Item: React.FC<IItemProps> = ({
       className={clsx(
         'flex items-center justify-between space-x-3 lg:space-x-4',
         {
-          'opacity-30': complete,
+          'opacity-30': taskComplete,
         },
         className,
       )}
@@ -31,22 +31,22 @@ const Item: React.FC<IItemProps> = ({
         <input
           className="checkbox checkbox-primary checkbox-md lg:checkbox-lg"
           type="checkbox"
-          checked={complete}
+          checked={taskComplete}
           onChange={() => {
-            toggleTodo(todoId);
+            toggleTask(taskId);
           }}
         />
         <span
           className={clsx('text-3xl lg:text-4xl break-words leading-none', {
-            'line-through': complete,
+            'line-through': taskComplete,
           })}
         >
-          {task}
+          {taskTitle}
         </span>
       </label>
       <button
         onClick={() => {
-          removeTodo(todoId);
+          removeTask(taskId);
         }}
         className="btn btn-warning btn-xs lg:btn-sm btn-square"
       >

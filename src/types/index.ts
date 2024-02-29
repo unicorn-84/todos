@@ -1,2 +1,1 @@
-export type { default as ITodo } from './ITodo';
-export type { default as ITodoChangeMethods } from './ITodoChangeMethods';
+export type { default as ITask } from './ITask';
