@@ -2,15 +2,14 @@ import React from 'react';
 import type { ITask } from '../types';
 import clsx from 'clsx';
 
-interface IItemProps extends ITask, React.HTMLAttributes<HTMLDivElement> {
+interface IItemProps extends React.HTMLAttributes<HTMLDivElement> {
+  task: ITask;
   toggleTask: (id: number) => void;
   removeTask: (id: number) => void;
 }
 
 const Item: React.FC<IItemProps> = ({
-  taskId,
-  taskTitle,
-  taskComplete,
+  task: { id, title, complete },
   removeTask,
   toggleTask,
   className,
@@ -21,7 +20,7 @@ const Item: React.FC<IItemProps> = ({
       className={clsx(
         'flex items-center justify-between space-x-3 lg:space-x-4',
         {
-          'opacity-30': taskComplete,
+          'opacity-30': complete,
         },
         className,
       )}
@@ -31,22 +30,22 @@ const Item: React.FC<IItemProps> = ({
         <input
           className="checkbox checkbox-primary checkbox-md lg:checkbox-lg"
           type="checkbox"
-          checked={taskComplete}
+          checked={complete}
           onChange={() => {
-            toggleTask(taskId);
+            toggleTask(id);
           }}
         />
         <span
           className={clsx('text-3xl lg:text-4xl break-words leading-none', {
-            'line-through': taskComplete,
+            'line-through': complete,
           })}
         >
-          {taskTitle}
+          {title}
         </span>
       </label>
       <button
         onClick={() => {
-          removeTask(taskId);
+          removeTask(id);
         }}
         className="btn btn-warning btn-xs lg:btn-sm btn-square"
       >

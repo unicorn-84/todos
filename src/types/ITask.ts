@@ -1,7 +1,7 @@
 interface ITask {
-  taskId: number;
-  taskTitle: string;
-  taskComplete: boolean;
+  id: number;
+  title: string;
+  complete: boolean;
 }
 
 export default ITask;

@@ -18,12 +18,10 @@ const List: React.FC<IListProps> = ({
 }) => {
   return (
     <ul className={clsx('space-y-4 lg:space-y-6', className)} {...props}>
-      {tasks.map(({ taskId, taskTitle, taskComplete }) => (
+      {tasks.map((task) => (
         <Item
-          key={taskId}
-          taskTitle={taskTitle}
-          taskComplete={taskComplete}
-          taskId={taskId}
+          key={task.id}
+          task={task}
           removeTask={removeTask}
           toggleTask={toggleTask}
         />

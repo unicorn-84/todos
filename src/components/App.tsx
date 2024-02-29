@@ -12,13 +12,13 @@ const App: React.FC = () => {
   };
 
   const addTask = (): void => {
-    if (value !== '' && tasks.every(({ taskTitle }) => taskTitle !== value)) {
+    if (value !== '' && tasks.every(({ title }) => title !== value)) {
       setTasks([
         ...tasks,
         {
-          taskId: Date.now(),
-          taskTitle: value,
-          taskComplete: false,
+          id: Date.now(),
+          title: value,
+          complete: false,
         },
       ]);
       setValue('');
@@ -26,19 +26,19 @@ const App: React.FC = () => {
   };
 
   const removeTask = (id: number): void => {
-    setTasks(tasks.filter(({ taskId }) => taskId !== id));
+    setTasks(tasks.filter((task) => task.id !== id));
   };
 
   const toggleTask = (id: number): void => {
     setTasks(
       tasks.map((task) => {
-        if (task.taskId !== id) {
+        if (task.id !== id) {
           return task;
         }
 
         return {
           ...task,
-          taskComplete: !task.taskComplete,
+          complete: !task.complete,
         };
       }),
     );
