@@ -10,6 +10,7 @@ module.exports = {
     'plugin:jest-dom/recommended',
     'plugin:testing-library/react',
     'plugin:jsx-a11y/recommended',
+    'prettier',
   ],
   ignorePatterns: ['dist'],
   overrides: [
