@@ -4,8 +4,8 @@ import clsx from 'clsx';
 
 interface IFormProps
   extends Pick<ITodoChangeMethods, 'addTodo'>,
-  React.HTMLAttributes<HTMLDivElement> {
-  value: string
+    React.HTMLAttributes<HTMLDivElement> {
+  value: string;
 }
 
 const Form: React.FC<IFormProps> = ({

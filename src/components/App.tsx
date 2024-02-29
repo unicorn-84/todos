@@ -47,9 +47,9 @@ const App: React.FC = () => {
   return (
     <div className="m-auto max-w-xl px-6 mt-12 lg:mt-24">
       <Form value={value} onChange={handleChange} addTodo={addTodo} />
-      {
-        todos.length > 0 && <List todos={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
-      }
+      {todos.length > 0 && (
+        <List todos={todos} removeTodo={removeTodo} toggleTodo={toggleTodo} />
+      )}
     </div>
   );
 };

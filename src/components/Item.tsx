@@ -4,8 +4,8 @@ import clsx from 'clsx';
 
 interface IItemProps
   extends ITodo,
-  Pick<ITodoChangeMethods, 'removeTodo' | 'toggleTodo'>,
-  React.HTMLAttributes<HTMLDivElement> {}
+    Pick<ITodoChangeMethods, 'removeTodo' | 'toggleTodo'>,
+    React.HTMLAttributes<HTMLDivElement> {}
 
 const Item: React.FC<IItemProps> = ({
   todoId,

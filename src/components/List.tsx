@@ -5,8 +5,8 @@ import type { ITodo, ITodoChangeMethods } from '../types';
 
 interface IListProps
   extends Pick<ITodoChangeMethods, 'removeTodo' | 'toggleTodo'>,
-  React.HTMLAttributes<HTMLUListElement> {
-  todos: ITodo[]
+    React.HTMLAttributes<HTMLUListElement> {
+  todos: ITodo[];
 }
 
 const List: React.FC<IListProps> = ({
