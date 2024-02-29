@@ -29,7 +29,11 @@ module.exports = {
   plugins: ['react'],
   rules: {
     semi: 'off',
-    '@typescript-eslint/semi': ['error', 'always', { omitLastInOneLineBlock: true }],
+    '@typescript-eslint/semi': [
+      'error',
+      'always',
+      { omitLastInOneLineBlock: true },
+    ],
     'comma-dangle': 'off',
     '@typescript-eslint/comma-dangle': ['error', 'always-multiline'],
     'no-console': ['error', { allow: ['error'] }],
