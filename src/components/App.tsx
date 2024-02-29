@@ -14,12 +14,12 @@ const App: React.FC = () => {
   const addTodo = (): void => {
     if (value !== '' && todos.every((todo) => todo.task !== value)) {
       setTodos([
+        ...todos,
         {
           todoId: Date.now(),
           task: value,
           complete: false,
         },
-        ...todos,
       ]);
       setValue('');
     }
