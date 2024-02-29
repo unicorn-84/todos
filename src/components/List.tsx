@@ -13,11 +13,10 @@ const List: React.FC<IListProps> = ({
   tasks,
   removeTask,
   toggleTask,
-  className,
   ...props
 }) => {
   return (
-    <ul className={clsx('space-y-4 lg:space-y-6', className)} {...props}>
+    <ul className={clsx('space-y-4 lg:space-y-6')} {...props}>
       {tasks.map((task) => (
         <Item
           key={task.id}

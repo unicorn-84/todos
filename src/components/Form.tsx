@@ -6,13 +6,7 @@ interface IFormProps extends React.HTMLAttributes<HTMLDivElement> {
   addTask: () => void;
 }
 
-const Form: React.FC<IFormProps> = ({
-  value,
-  onChange,
-  addTask,
-  className,
-  ...props
-}) => {
+const Form: React.FC<IFormProps> = ({ value, onChange, addTask, ...props }) => {
   const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
     if (e.key === 'Enter') {
       addTask();
@@ -23,7 +17,6 @@ const Form: React.FC<IFormProps> = ({
     <div
       className={clsx(
         'flex items-center justify-center space-x-3 lg:space-x-4 mb-9 lg:mb-12',
-        className,
       )}
       {...props}
     >

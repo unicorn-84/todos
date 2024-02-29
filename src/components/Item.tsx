@@ -12,7 +12,6 @@ const Item: React.FC<IItemProps> = ({
   task: { id, title, complete },
   removeTask,
   toggleTask,
-  className,
   ...props
 }) => {
   return (
@@ -22,7 +21,6 @@ const Item: React.FC<IItemProps> = ({
         {
           'opacity-30': complete,
         },
-        className,
       )}
       {...props}
     >
