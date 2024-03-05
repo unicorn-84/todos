@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Form, List } from '.';
+import { List } from '.';
 import type { ITask } from '../types';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
@@ -9,6 +9,12 @@ const App: React.FC = () => {
 
   const handleChange: React.ChangeEventHandler<HTMLInputElement> = (e) => {
     setValue(e.target.value);
+  };
+
+  const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> = (e) => {
+    if (e.key === 'Enter') {
+      addTask();
+    }
   };
 
   const addTask = (): void => {
@@ -46,7 +52,15 @@ const App: React.FC = () => {
 
   return (
     <div className="m-auto max-w-xl px-6 mt-12 lg:mt-24">
-      <Form value={value} onChange={handleChange} addTask={addTask} />
+      <div className="flex items-center justify-center space-x-3 lg:space-x-4 mb-9 lg:mb-12">
+        <input
+          placeholder="Enter your task"
+          value={value}
+          onChange={handleChange}
+          onKeyDown={handleKeyDown}
+          className="input input-bordered input-primary w-full"
+        />
+      </div>
       {tasks.length > 0 && (
         <List tasks={tasks} removeTask={removeTask} toggleTask={toggleTask} />
       )}
