@@ -1,0 +1,40 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Item > should render correctly 1`] = `
+<div
+  class="flex items-center justify-between space-x-3 lg:space-x-4 opacity-30"
+  data-testid="item"
+>
+  <div
+    class="label cursor-pointer w-full justify-start space-x-3 lg:space-x-4 p-0"
+  >
+    <input
+      class="checkbox checkbox-primary checkbox-md lg:checkbox-lg"
+      type="checkbox"
+    />
+    <span
+      class="text-3xl lg:text-4xl break-words leading-none line-through"
+    >
+      Task1
+    </span>
+  </div>
+  <button
+    class="btn btn-warning btn-xs lg:btn-sm btn-square"
+  >
+    <svg
+      class="h-6 w-6"
+      fill="none"
+      stroke="currentColor"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        d="M6 18L18 6M6 6l12 12"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        stroke-width="2"
+      />
+    </svg>
+  </button>
+</div>
+`;

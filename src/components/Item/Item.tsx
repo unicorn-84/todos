@@ -1,5 +1,5 @@
 import React from 'react';
-import type { ITask } from '../types';
+import type { ITask } from '../../types';
 import clsx from 'clsx';
 
 interface IItemProps extends React.HTMLAttributes<HTMLDivElement> {
@@ -24,7 +24,7 @@ const Item: React.FC<IItemProps> = ({
       )}
       {...props}
     >
-      <label className="label cursor-pointer w-full justify-start space-x-3 lg:space-x-4 p-0">
+      <div className="label cursor-pointer w-full justify-start space-x-3 lg:space-x-4 p-0">
         <input
           className="checkbox checkbox-primary checkbox-md lg:checkbox-lg"
           type="checkbox"
@@ -40,7 +40,7 @@ const Item: React.FC<IItemProps> = ({
         >
           {title}
         </span>
-      </label>
+      </div>
       <button
         onClick={() => {
           removeTask(id);

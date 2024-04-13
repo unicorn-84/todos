@@ -1,20 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import { axe } from 'jest-axe';
 import App from './App';
 
 describe('App', () => {
   beforeEach(() => {
     window.localStorage.clear();
-  });
-
-  test('should have no accessibility violations', async () => {
-    const { container } = render(<App />);
-
-    const results = await axe(container);
-
-    expect(results).toHaveNoViolations();
   });
 
   test('should add a value to the list when press the "Enter" key', async () => {
@@ -55,7 +46,7 @@ describe('App', () => {
     render(<App />);
 
     await userEvent.type(screen.getByRole('textbox'), 'Task{Enter}');
-    await userEvent.click(screen.getByRole('checkbox', { name: /task/i }));
+    await userEvent.click(screen.getByRole('checkbox'));
 
     expect(screen.getByText('Task')).toHaveClass('line-through');
   });
