@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { List } from '.';
-import type { ITask } from '../types';
+import { List } from '..';
+import type { ITask } from '../../types';
 import { useLocalStorage } from '@uidotdev/usehooks';
 
 const App: React.FC = () => {

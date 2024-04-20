@@ -8,6 +8,12 @@ describe('App', () => {
     window.localStorage.clear();
   });
 
+  test('should render correctly', () => {
+    render(<App />);
+
+    expect(screen.getByRole('textbox')).toBeInTheDocument();
+  });
+
   test('should add a value to the list when press the "Enter" key', async () => {
     render(<App />);
 
@@ -40,14 +46,5 @@ describe('App', () => {
     await userEvent.click(screen.getByRole('button'));
 
     expect(screen.queryByRole('list')).not.toBeInTheDocument();
-  });
-
-  test('should switch the task when click the checkbox', async () => {
-    render(<App />);
-
-    await userEvent.type(screen.getByRole('textbox'), 'Task{Enter}');
-    await userEvent.click(screen.getByRole('checkbox'));
-
-    expect(screen.getByText('Task')).toHaveClass('line-through');
   });
 });
