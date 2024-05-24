@@ -24,7 +24,7 @@ const Item: React.FC<IItemProps> = ({
       )}
       {...props}
     >
-      <div className="label cursor-pointer w-full justify-start space-x-3 lg:space-x-4 p-0">
+      <label className="label cursor-pointer w-full justify-start items-center space-x-3 lg:space-x-4 p-0">
         <input
           className="checkbox checkbox-primary checkbox-md lg:checkbox-lg"
           type="checkbox"
@@ -40,7 +40,7 @@ const Item: React.FC<IItemProps> = ({
         >
           {title}
         </span>
-      </div>
+      </label>
       <button
         onClick={() => {
           removeTask(id);
